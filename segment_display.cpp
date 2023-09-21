@@ -50,13 +50,17 @@ namespace SEGMENT_DISPLAY {
         }
     }
 
-    void put_digits(uint8_t digits) {
+    void put_digits(uint16_t digits) {
+        printf("Digit: %i\n",digits);
         uint lastNumber = digits % 10;
         for (int i = 0; i < NUMBER_OF_SECTORS; i++) {
             NUMBERS[NUMBER_OF_SECTORS - 1 - i] = lastNumber;
             digits /= 10;
+            printf("\tD: %i",lastNumber);
             lastNumber = digits % ((i+1) * 10);
-        }
+        };
+        printf("\n\n");
+
     }
 
     void displaySector(uint8_t sector) {
